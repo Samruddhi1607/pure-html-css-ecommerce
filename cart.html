@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
+
+
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Poppins', sans-serif; */
+    
+    /* color: #ffcc99 Dark grey for readability */
+}
+body{
+    background-color: #f3e5f5; 
+   
+    padding-top: 70px; /* Ensure space below navbar */
+}
+
+/* Main container */
+.main {
+    text-align: center;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #e6e6fa; /* Lavender */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+    font-family: 'Parisienne', cursive;
+    font-size: 28px;
+    font-weight: bold;
+    color: #4a235a; /* Deep Purple */
+}
+
+/* NAV LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4a235a;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    background-color: #c39797; /* Rose Gold */
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+}
+
+/* HAMBURGER MENU (PURE CSS) */
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #4a235a;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #e6e6fa;
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        padding: 10px 0;
+    }
+
+    /* Toggle menu when checkbox is checked */
+    #menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+}
+
+        .cart-container {
+            width: 60%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ff4081;
+            margin-bottom: 15px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .cart-details {
+            flex: 1;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        .cart-total {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 15px;
+        }
+
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #ff4081;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .checkout-btn:hover {
+            background: #d81b60;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #ff4081;
+        }
+
+        @media (max-width: 768px) {
+            .cart-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="main">
+        <h1  class="logo">Glam Days</h1>
+       <div class="navbar">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>  
+          <li> <a href="cloths.html">Shop</a></li> 
+         <li> <a href="#">Contact Us</a> </li> 
+         <li><a href="#">Services</a> </li> 
+         <li>  <a href="cart.html" class="cart-icon">🛒 Cart</a></li>
+        </ul>
+      </div>
+    </div>
+
+<div class="cart-container">
+    <h2>🛒 Your Shopping Cart</h2>
+
+
+    <a href="#" class="checkout-btn">Proceed to Checkout</a>
+    <a href="index.html" class="back-btn">← Continue Shopping</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+/* navbar */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
+
+
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Poppins', sans-serif; */
+    
+    /* color: #ffcc99 Dark grey for readability */
+}
+body{
+    background-color: #f3e5f5; 
+   
+    padding-top: 70px; /* Ensure space below navbar */
+}
+
+/* Main container */
+.main {
+    text-align: center;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #e6e6fa; /* Lavender */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+    font-family: 'Parisienne', cursive;
+    font-size: 28px;
+    font-weight: bold;
+    color: #4a235a; /* Deep Purple */
+}
+
+/* NAV LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4a235a;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    background-color: #c39797; /* Rose Gold */
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+}
+
+/* HAMBURGER MENU (PURE CSS) */
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #4a235a;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #e6e6fa;
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        padding: 10px 0;
+    }
+
+    /* Toggle menu when checkbox is checked */
+    #menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+}
+
+/* product section */
+.product-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+.product-img {
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+    width: 220px;
+    border-radius: 8px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover effect */
+.product-img:hover {
+    transform: scale(1.1) rotate(2deg); /* Slight rotation for a 3D effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    border-color: #ff4081; /* Changes border color */
+}
+
+/* Image styling */
+.product-img img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* Image zoom effect */
+.product-img:hover img {
+    transform: scale(1.1); /* Image slightly zooms in */
+}
+
+/* Glow effect */
+.product-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 64, 129, 0.2); /* Soft pink glow */
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    border-radius: 8px;
+}
+
+.product-img:hover::before {
+    opacity: 1;
+}
+
+.price-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4081;
+    color: white;
+    padding: 5px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Subtle animation on hover */
+.cloth-img:hover .price-tag {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+/* add to cart */
+.add-to-cart {
+    background: #ff4081;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+.add-to-cart:hover {
+    background: #d81b60;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .products, .cart {
+        width: 100%;
+    }
+}
+
+/* footer */
+
+footer {
+    background: #222;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.footer-section {
+    max-width: 300px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    border-bottom: 2px solid #ff4081;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    color: #900936;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ff4081;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.social-icons img {
+    width: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1  class="logo">Glam Days</h1>
+       <div class="navbar">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>  
+          <li> <a href="shop.html">Shop</a></li> 
+         <li> <a href="contactus.html">Contact Us</a> </li> 
+         <li><a href="service.html">Services</a> </li> 
+         <li>  <a href="cart.html" class="cart-icon">🛒 Cart</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- products -->
+
+    <div class="product-container">
+         
+        <div class="product-img">
+            <span class="price-tag">₹999</span>
+            <img src="https://th.bing.com/th/id/OIP.7SI3vBZYchrq-SO8Axj1rQHaHa?w=205&h=205&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+            
+
+        </div>
+
+        <div class="product-img">
+            <span class="price-tag">₹899</span>
+            <img src="https://th.bing.com/th/id/OIP.qEBaRjg0wxmSlAaI8eqCrwHaHa?w=190&h=190&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹1199</span>
+            <img src="https://th.bing.com/th/id/OIP.XTwkXLRZAECZbRpl0sgIRQHaE7?w=222&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹600</span>
+            <img src="https://th.bing.com/th/id/OIP.tlvbM2xbN79cEQc5wiTPlAHaHa?w=176&h=183&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹410</span>
+            <img src="https://th.bing.com/th/id/OIP._yctW8nT7yuuiWFwRPgdzQHaFj?w=277&h=208&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹599</span>
+            <img src="https://th.bing.com/th/id/OIP.mF2O9M7PGHVnj5wozszKgQHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹1050</span>
+            <img src="https://th.bing.com/th/id/OIP.z9bUay0Rwho2P5XQiGj1DAHaHa?rs=1&pid=ImgDetMain" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹1299</span>
+            <img src="https://m.media-amazon.com/images/I/511jo2h6YWL._UY535_.jpg" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹1799</span>
+            <img src="https://th.bing.com/th/id/OIP.q5ndPXv1FIJplVMJImzoOAHaHa?w=178&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹900</span>
+            <img src="https://theimpression.com/wp-content/uploads/2022/10/vuitton-clp-s23-094-1.jpg" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹650</span>
+            <img src="https://rukminim1.flixcart.com/image/612/612/xif0q/hand-messenger-bag/2/9/l/trendy-handbag-sling-bag-for-women-m-pink-hand-held-bag-nariox-original-imaggd9jbu4dyzu8.jpeg?q=70" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+       
+
+        <div class="product-img">
+            <span class="price-tag">₹500</span>
+            <img src="https://th.bing.com/th/id/OIP.Tr8aarKWYtdKunSdpdPNKgHaHa?w=219&h=219&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹950</span>
+            <img src="https://th.bing.com/th/id/OIP.7Vp7OZTH_2eiByE5cLwvdAHaHa?w=198&h=198&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹600</span>
+            <img src="https://th.bing.com/th/id/OIP.D1M5K44G-9lykcHy-CVM3AHaHa?w=206&h=206&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹750</span>
+            <img src="https://th.bing.com/th/id/OIP.oaiJuCf1cQRtTBGEXY1vlAHaHa?w=206&h=206&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹890</span>
+            <img src="https://th.bing.com/th/id/OIP.frxYyE7E7uFVGVFIyu-nuwHaGv?w=196&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+       
+
+        <div class="product-img">
+            <span class="price-tag">₹800</span>
+            <img src="https://th.bing.com/th/id/OIP.G5nRj24QiD3IvV4Jk0xwDQHaHa?w=210&h=211&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹550</span>
+            <img src="https://th.bing.com/th/id/OIP.ApVvWKeaJx3HQnm2qXa1fgHaHv?w=175&h=183&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹799</span>
+            <img src="https://th.bing.com/th/id/OIP.0zCR6TLFTVMqhIGd-Vx6YQHaHa?w=188&h=188&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹999</span>
+            <img src="https://th.bing.com/th/id/OIP.Oalw6GF2y6Sqw2bUmlMCkQHaHa?w=195&h=195&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+        <div class="product-img">
+            <span class="price-tag">₹850</span>
+            <img src="https://th.bing.com/th/id/OIP.VaHYvq52JFNvLezhSvxDhwHaHa?w=202&h=202&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+          <div class="product-img">
+            <span class="price-tag">₹789</span>
+            <img src="https://th.bing.com/th/id/OIP.Okz4c7Lu-a9r2W2SbDotGwHaHa?w=202&h=202&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+        <div class="product-img">
+            <span class="price-tag">₹899</span>
+            <img src="https://th.bing.com/th/id/OIP.YBzxeFlOxzuL8ukeHgVEHwHaHa?w=203&h=203&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            
+            <a href="cart.html" class="add-to-cart">Add to Cart</a>
+        </div>
+
+
+    </div>
+     <!-- footer -->
+
+     <div class="footer-container">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>We provide high-quality beauty products at the best prices. Your beauty, our priority!</p>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="service.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/733/733547.png" alt="Facebook"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/733/733558.png" alt="Instagram"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/733/733635.png" alt="Twitter"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/733/733553.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 YourBrand. All rights reserved.</p>
+    </div>
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Emporifyx</title>
+   
+
+    <style>
+        /* navbar */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+         /* Reset default margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          
+        }
+        body{
+            background-color: #f3e5f5; 
+           
+            padding-top: 70px; /* Ensure space below navbar */
+        }
+        
+        /* Main container */
+        .main {
+            text-align: center;
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #e6e6fa; /* Lavender */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        /* LOGO */
+        .logo {
+            font-family: 'Parisienne', cursive;
+            font-size: 28px;
+            font-weight: bold;
+            color: #4a235a; /* Deep Purple */
+        }
+        
+        /* NAV LINKS */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links li {
+            display: inline;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #4a235a;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+        
+        .nav-links a:hover {
+            background-color: #c39797; /* Rose Gold */
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 8px;
+        }
+        
+        /* HAMBURGER MENU (PURE CSS) */
+        #menu-toggle {
+            display: none;
+        }
+        
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #4a235a;
+        }
+        
+        /* RESPONSIVE DESIGN */
+        @media screen and (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+        
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #e6e6fa;
+                text-align: center;
+                padding: 20px 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+        
+            .nav-links li {
+                padding: 10px 0;
+            }
+        
+            /* Toggle menu when checkbox is checked */
+            #menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+        }
+
+        /* Flash Sale */
+.flash-sale {
+    text-align: center;
+    background: #ff4081;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    animation: flash 1.5s infinite alternate;
+}
+
+@keyframes flash {
+    0% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+/* Products Section */
+.products {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    position: relative;
+    width: 250px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product-info {
+    text-align: center;
+    padding: 10px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff4081;
+    margin: 5px 0;
+}
+
+/* Stock Labels */
+.stock {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.in-stock {
+    color: green;
+}
+
+.low-stock {
+    color: orange;
+}
+
+.out-of-stock {
+    color: red;
+}
+
+/* Ratings */
+.rating {
+    font-size: 16px;
+    color: #ffcc00;
+    margin: 5px 0;
+}
+
+/* Add to Cart */
+.add-to-cart {
+    background: #ff4081;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.add-to-cart:hover {
+    background: #d81b60;
+}
+
+.add-to-cart.disabled {
+    background: grey;
+    cursor: not-allowed;
+}
+
+
+
+
+        /* footer */
+
+footer {
+    background: #222;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.footer-section {
+    max-width: 300px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    border-bottom: 2px solid #ff4081;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    color: #900936;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ff4081;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.social-icons img {
+    width: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+ </style>        
+</head>
+<body>
+
+    <div class="main">
+        <h1  class="logo">Glam Days</h1>
+       <div class="navbar">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>  
+          <li> <a href="shop.html">Shop</a></li> 
+         <li> <a href="contactus.html">Contact Us</a> </li> 
+         <li><a href="service.html">Services</a> </li> 
+         <li>  <a href="cart.html" class="cart-icon">🛒 Cart</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="flash-sale">
+        <h2>🔥 Limited Time Flash Sale! 🔥</h2>
+        <p class="countdown">Hurry! Only a few hours left.</p>
+    </section>
+
+    <section class="products">
+        <div class="product-card">
+            <img src="https://th.bing.com/th/id/OIP.Eeh-5PQvVpI7ZQLRB1sZbAHaGV?w=227&h=194&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Dress">
+            <div class="product-info">
+                <h3>Stylish clutch</h3>
+                <p class="price">₹880</p>
+                <p class="stock in-stock">In Stock</p>
+                <p class="rating">⭐⭐⭐⭐☆ (120 Reviews)</p>
+                <a href="#" class="add-to-cart">Add to Cart</a>
+            </div>
+        </div>
+
+       
+        
+        <div class="product-card">
+            <img src="https://th.bing.com/th/id/OIP.pvhQ9VZ2AirZuTypKEWcngHaJQ?w=202&h=253&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Shoes">
+            <div class="product-info">
+                <h3>Elegant Dress</h3>
+                <p class="price">₹1090</p>
+                <p class="stock low-stock">Only 10 Left!</p>
+                <p class="rating">⭐⭐⭐⭐⭐ (88 Reviews)</p>
+                <a href="#" class="add-to-cart">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://th.bing.com/th/id/OIP.snGUAvy3spgOjycoyi8JiQHaGN?w=246&h=207&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Bag">
+            <div class="product-info">
+                <h3>Classy clutch/h3>
+                <p class="price">₹780</p>
+                <p class="stock out-of-stock">Out of Stock</p>
+                <p class="rating">⭐⭐⭐☆☆ (85 Reviews)</p>
+                <a href="#" class="add-to-cart disabled">Sold Out</a>
+            </div>
+        </div>
+    </section>
+
+  <!-- footer -->
+
+  <div class="footer-container">
+    <div class="footer-section">
+        <h3>About Us</h3>
+        <p>We provide high-quality beauty products at the best prices. Your beauty, our priority!</p>
+    </div>
+    
+    <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="service.html">Privacy Policy</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/733/733547.png" alt="Facebook"></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/733/733558.png" alt="Instagram"></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/733/733635.png" alt="Twitter"></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/733/733553.png" alt="LinkedIn"></a>
+        </div>
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <p>&copy; 2025 YourBrand. All rights reserved.</p>
+</div>
+</footer>
+
+
+</body>
+</html>

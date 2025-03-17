@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Beauty & Fashion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fff0f5; /* Light pink */
+            color: #5a3e36; /* Soft brown */
+            text-align: center;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
+
+
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Poppins', sans-serif; */
+    
+    /* color: #ffcc99 Dark grey for readability */
+}
+body{
+    background-color: #f3e5f5; 
+   
+    padding-top: 70px; /* Ensure space below navbar */
+}
+
+/* Main container */
+.main {
+    text-align: center;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #e6e6fa; /* Lavender */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* NAV LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4a235a;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    background-color: #c39797; /* Rose Gold */
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+}
+
+/* HAMBURGER MENU (PURE CSS) */
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #4a235a;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #e6e6fa;
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        padding: 10px 0;
+    }
+
+    /* Toggle menu when checkbox is checked */
+    #menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+}
+
+body {
+            background-color: #fff0f5; /* Soft Pink */
+            color: #5a3e36; /* Soft Brown */
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255, 192, 203, 0.6), rgba(255, 192, 203, 0.6)), url('https://source.unsplash.com/1600x900/?fashion,makeup') center/cover;
+            padding: 80px 20px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 42px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        /* Services Section */
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .service-card h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
+            color: #ff69b4; /* Hot Pink */
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #ffccd5;
+            padding: 40px;
+            margin-top: 20px;
+        }
+
+        .contact h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 32px;
+        }
+
+        .contact a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ff69b4;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+.contact a:hover {
+            background: #d63384;
+        }
+
+
+        /* footer */
+
+footer {
+    background: #222;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.footer-section {
+    max-width: 300px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    border-bottom: 2px solid #ff4081;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    color: #900936;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ff4081;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.social-icons img {
+    width: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="main">
+       
+       <div class="navbar">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>  
+          <li> <a href="shop.html">Shop</a></li> 
+         <li> <a href="contactus.html">Contact Us</a> </li> 
+         <li><a href="service.html">Services</a> </li> 
+         <li>  <a href="cart.html" class="cart-icon">🛒 Cart</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hero">
+        <h1>✨ Fashion & Beauty Services ✨</h1>
+        <p>Your go-to place for stylish outfits, luxury bags, and premium skincare! 💖</p>
+    </div>
+
+    <div class="services-container">
+        <div class="service-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2366/2366937.png" alt="Clothing">
+            <h3>Trendy Clothing</h3>
+            <p>Discover the latest fashion trends with our stylish collections.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/9110/9110625.png" alt="Purses">
+            <h3>Luxury Purses</h3>
+            <p>Shop high-quality handbags and purses that complement your style.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3502/3502455.png" alt="Skincare">
+            <h3>Skincare Products</h3>
+            <p>Nourish your skin with our dermatologically tested skincare range.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/9245/9245666.png" alt="Makeup">
+            <h3>Makeup Collection</h3>
+            <p>Explore our premium makeup products for a flawless look.</p>
+        </div>
+    </div>
+
+    <div class="contact">
+        <h2>💌 Have Questions? Contact Us!</h2>
+        <a href="mailto:yourfashionbeauty@example.com">Email Us</a>
+    </div>
+
+
+
+      <!-- footer -->
+
+      <div class="footer-container">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>We provide high-quality beauty products at the best prices. Your beauty, our priority!</p>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="service.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/733/733547.png" alt="Facebook"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/733/733558.png" alt="Instagram"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/733/733635.png" alt="Twitter"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/733/733553.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 YourBrand. All rights reserved.</p>
+    </div>
+    </footer>
+</body>
+</html>
